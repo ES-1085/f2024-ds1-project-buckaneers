@@ -7,7 +7,16 @@ using the following format.
 
 ## name of data file
 
-- `variable1`: Description of variable 1
-- `variable2`: Description of variable 2
-- `variable3`: Description of variable 3
+- `FieldID`: Internally labeling system to identify fields
+- `Region`: Six regions identified
+- `Sampling Time`: Samples were collected one of two general time periods
+- `Year`: Samples collected over three years
+- `Sand`: percent, obtained as average of NRCS soil survey texture class
+- `clay`: percent, obtained as average of NRCS soil survey texture class
+- `Drainage`: obtained from NRCS soil survey
+- `SoilType`:obtained from NRCS soil survey
+- `pH`:unitless, Directly measured
+- `tile`: obtained from farmer information
+- `OM`:Directly measured as loss on ignition
+-`TOC`:Directly measured with elemental analyzer
 - ...
