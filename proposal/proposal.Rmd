@@ -1,5 +1,5 @@
 ---
-title: "Project proposal"
+title: "Soil Factors Influenced by Agriculture & Livestock Management Project Proposal"
 author: "Buckaneers"
 output: html_document
 ---
@@ -7,6 +7,8 @@ output: html_document
 ```{r load-packages, message = FALSE}
 library(tidyverse)
 library(broom)
+library(readr)
+library(dplyr)
 ```
 
 ## 1. Introduction
@@ -20,9 +22,12 @@ We are analyzing the influence of inherent soil factors and agricultural managem
 
 
 ```{r}
-
+Data2 <- read_csv("../data/Data2.csv")
 ```
 
+```{r}
+glimpse(Data2)
+```
 
 ## 3. Data analysis plan
 
