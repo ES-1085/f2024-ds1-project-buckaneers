@@ -11,15 +11,18 @@ library(broom)
 
 ## 1. Introduction
 
-  We are analyzing the influence of inherent soil factors and agricultural management on soil organic matter. Our data comes from a coalition of 218 farms and fields across Wisconsin and southern Minnesota. The data was collected using single variable and regression tree analysis to examine the soil characteristics: texture, drainage, and pH in relation to tillage, animal husbandry, cover cropping, manure application, and crop rotation. 
+We are analyzing the influence of inherent soil factors and agricultural management on soil organic matter. Our data comes from a coalition of 218 farms and fields across Wisconsin and southern Minnesota. The data was collected using single variable and regression tree analysis to examine the soil characteristics: texture, drainage, and pH in relation to tillage, animal husbandry, cover cropping, manure application, and crop rotation. 
+
+
+
 
 ## 2. Data
 
-Text goes here.
 
 ```{r}
-# Code goes here
+
 ```
+
 
 ## 3. Data analysis plan
 
