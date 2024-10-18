@@ -6,6 +6,12 @@ Then, include codebooks (variables, and their descriptions) for your data file(s
 using the following format.
 
 ## name of data file
+Number of rows 218
+Number of columns 35
+
+
+
+## variable of names 
 
 - `FieldID`: Internally labeling system to identify fields.
 - `Region`: Six regions identified.
@@ -134,4 +140,5 @@ using the following format.
 
  
 
+>>>>>>> 1a58042174c16e488acc123708430476040a4fba
 - ...
