@@ -9,6 +9,7 @@ library(tidyverse)
 library(broom)
 library(readr)
 library(dplyr)
+library(janitor)
 ```
 
 ## 1. Introduction
@@ -42,7 +43,7 @@ Will there be any other data that you need to find to help with your research qu
 The data visualization(s) that you believe will be useful in exploring your question(s). (You can update these later as you work on your project.)
 
 - We think that faceting might be of use to separate visualizations for soil types or crop rotation/ species grown. 
-
+- The use of mapping or making a map colored by specific variable(s) may be helpful in visualizing soil qualities based on location/use of land (agricultural/livestock). 
 
 
 ```{r}
