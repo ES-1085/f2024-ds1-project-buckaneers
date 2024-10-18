@@ -28,7 +28,15 @@ We are analyzing the influence of inherent soil factors and agricultural managem
 
 What variables will you visualize to explore your research questions?
 
-We will be looking at what type of agriculture is upon the land in which the soil was tested (e.g. turkey, beef, dairy, rye, wheat, oat, corn, soy, etc.). Additionally, we will examine what soil factors are included in the analyses like description of the soil (from sandy to “muck”, drainage of soil (“very poorly drained”, “poorly drained”, “somewhat poorly drained”, “moderately well drained”, “well drained”, “somewhat excessively well drained”, and “excessively drained”, soil type (rated on a scale), pH, regions in which the soil exists (1, 2, 3, 4, 5, 6) across Wisconsin and Minnesota, and the year in which the samples were collected (2015-2017). Secondly, we will be including the variable of manure: what species did the manure come from, what form was it (liquid, solid), how many applications was the soil exposed to. Another variable included in the dataset will be the form/type of tillage of the soil: “no tillage” (vertical tillage or strip tillage, “conventional tillage” (chisel, disk or moldboard), and the number of “tillage passes” that occurred between harvest of the previous year’s crop and the planting of the current year’s crop (0 to 4). Tillage was only considered no-tillage or minimum tillage if practiced for more than 4 years. 
+- We will be looking at what type of agriculture is upon the land in which the soil was tested (e.g. turkey, beef, dairy, rye, wheat, oat, corn, soy, etc.). Additionally, we will examine what soil factors are included in the analyses like description of the soil (from sandy to “muck”, drainage of soil (“very poorly drained”, “poorly drained”, “somewhat poorly drained”, “moderately well drained”, “well drained”, “somewhat excessively well drained”, and “excessively drained”, soil type (rated on a scale), pH, regions in which the soil exists (1, 2, 3, 4, 5, 6) across Wisconsin and Minnesota, and the year in which the samples were collected (2015-2017). Secondly, we will be including the variable of manure: what species did the manure come from, what form was it (liquid, solid), how many applications was the soil exposed to. Another variable included in the dataset will be the form/type of tillage of the soil: “no tillage” (vertical tillage or strip tillage, “conventional tillage” (chisel, disk or moldboard), and the number of “tillage passes” that occurred between harvest of the previous year’s crop and the planting of the current year’s crop (0 to 4). Tillage was only considered no-tillage or minimum tillage if practiced for more than 4 years. 
+
+Will there be any other data that you need to find to help with your research question?
+
+- Not at the moment, but if there is, we will add it. We are also looking at narrative comments on the data in the source paper, which is still pre-print and unpublished. 
+
+The data visualization(s) that you believe will be useful in exploring your question(s). (You can update these later as you work on your project.)
+
+- We think that faceting might be of use to separate visualizations for soil types or crop rotation/ species grown. 
 
 
 
