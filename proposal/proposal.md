@@ -1,6 +1,6 @@
 Project proposal
 ================
-Team name
+Buckaneers
 
 ``` r
 library(tidyverse)

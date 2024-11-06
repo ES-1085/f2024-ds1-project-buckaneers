@@ -1,5 +1,5 @@
 ---
-title: "Project proposal"
+title: "Soil Factors Influenced by Agriculture & Livestock Management Project Proposal"
 author: "Buckaneers"
 output: html_document
 ---
@@ -7,7 +7,13 @@ output: html_document
 ```{r load-packages, message = FALSE}
 library(tidyverse)
 library(broom)
+
 data2 <- read_csv("../data/Data2.csv")
+
+library(readr)
+library(dplyr)
+library(janitor)
+
 ```
 
 ## 1. Introduction
@@ -20,6 +26,7 @@ There are `r nrow(data2)` rows and `r ncol(data2)`
 ## 2. Data
 
 
+<<<<<<< HEAD
 ```{r Data overveiw}
 glimpse(Data2)
 
@@ -28,6 +35,14 @@ library(janitor)
 Data2_clean <- janitor::clean_names(Data2)
 ```
 
+```{r}
+Data2 <- read_csv("../data/Data2.csv")
+
+```
+
+```{r}
+glimpse(Data2)
+```
 
 ## 3. Data analysis plan
 
@@ -42,7 +57,7 @@ Will there be any other data that you need to find to help with your research qu
 The data visualization(s) that you believe will be useful in exploring your question(s). (You can update these later as you work on your project.)
 
 - We think that faceting might be of use to separate visualizations for soil types or crop rotation/ species grown. 
-
+- The use of mapping or making a map colored by specific variable(s) may be helpful in visualizing soil qualities based on location/use of land (agricultural/livestock). 
 
 
 ```{r visualization draft}
