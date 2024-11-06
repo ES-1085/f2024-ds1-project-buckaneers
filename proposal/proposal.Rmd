@@ -7,6 +7,7 @@ output: html_document
 ```{r load-packages, message = FALSE}
 library(tidyverse)
 library(broom)
+data2 <- read_csv("../data/Data2.csv")
 ```
 
 ## 1. Introduction
@@ -14,13 +15,17 @@ library(broom)
 We are analyzing the influence of inherent soil factors and agricultural management on soil organic matter. Our data comes from a coalition of 218 farms and fields across Wisconsin and southern Minnesota. The data was collected using single variable and regression tree analysis to examine the soil characteristics: texture, drainage, and pH in relation to tillage, animal husbandry, cover cropping, manure application, and crop rotation. 
 
 
-
+There are `r nrow(data2)` rows and `r ncol(data2)`
 
 ## 2. Data
 
 
-```{r}
+```{r Data overveiw}
+glimpse(Data2)
 
+library(janitor)
+
+Data2_clean <- janitor::clean_names(Data2)
 ```
 
 
@@ -40,8 +45,9 @@ The data visualization(s) that you believe will be useful in exploring your ques
 
 
 
-```{r}
-# Code goes here
+```{r visualization draft}
+ggplot(Data2, mapping = aes(x = Region, y = `fertN_lb/ac`))+
+       geom_histogram()
 ```
 
 

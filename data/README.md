@@ -10,7 +10,6 @@ Number of rows 218
 Number of columns 35
 
 
-
 ## variable of names 
 
 - `FieldID`: Internally labeling system to identify fields.
@@ -46,9 +45,10 @@ Number of columns 35
 - `fertN_lb/ac` : Total fertilizer nitrogen applied, obtained from from farmer information.
 - `fertN_kg/ha` : fertN_lb/ac converted to kg/ha (data originally obtained as english units.)
 - `totalN_lb/ac` : sum of 'Ncredit_lb/ac', 'mnrN_lb/ac', and 'fertN_lb/ac'.
-- `totalN_kg/ha : sum of 'Ncredit_kg/ha', 'mnrN_kg/ha', and 'fertN_kg/ha'.
+- `totalN_kg/ha` : sum of 'Ncredit_kg/ha', 'mnrN_kg/ha', and 'fertN_kg/ha'.
 
--Categorical variables and the assigned value description
+##Categorical variables and the assigned value description
+
 - `Region 1` : Northeast WI
 - `Region 2` : Dry Run (HUC 0703000510)
 - `Region 3` : Elk Creek (HUC 0704000503)
