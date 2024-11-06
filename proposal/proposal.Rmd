@@ -63,12 +63,14 @@ The data visualization(s) that you believe will be useful in exploring your ques
 ```{r visualization draft}
 Data2_clean|>
 filter(mnr_source != ".")|> 
+filter(mnr_solid != ".")|>
 mutate(mnr_source = fct_relevel(mnr_source, "none", "beef","dairy", "chicken", "swine", "turkey" ))|>
 
   
-ggplot(Data2_clean, mapping = aes(x = mnr_source, y = p_h, color = mnr_source))+
-         geom_boxplot()+
+ggplot(Data2_clean, mapping = aes(x = mnr_source, y = p_h, color = mnr_solid))+
+         geom_violin()+
   scale_colour_viridis_d()+
+
 
   labs(title = "Ph levels of soil with different manure sources", x = "Manure Type", y = "pH", color = "Manure")
   
