@@ -30,8 +30,8 @@ Number of columns 35
 - `rtnNumber` : General category of crop rotation, determined from Rtn.
 - `PreviousCrop` : Category of previous crop, obtained from farmer information.
 - `Ncredit_lb/ac` : N credit from previous crop being alfalfa (90 lb-N/ac); used in total N application calculation.
-- `Ncredit_kg/ha' : Ncredit_lb/ac converted to kg/ha.
-- 'CvrPriorYr' : f cover crops were applied the previous year or not, obtained from farmer information.
+- `Ncredit_kg/ha` : Ncredit_lb/ac converted to kg/ha.
+- `CvrPriorYr` : f cover crops were applied the previous year or not, obtained from farmer information.
 - `cvrsSpeciesLgTm` : cover crop species planted if there was a cover crop in prior year, obtained from farmer information.
 - `cvrs5yrs` : Number of times a cover crop was planted in the past five years, obtained from farmer information.
 -`SpringfallTillPasses` : Occurrence of last tillage during the past 12 months, obtained from farmer information.
@@ -140,5 +140,5 @@ Number of columns 35
 
  
 
->>>>>>> 1a58042174c16e488acc123708430476040a4fba
+
 - ...

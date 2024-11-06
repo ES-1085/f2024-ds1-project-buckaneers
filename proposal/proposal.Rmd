@@ -61,10 +61,17 @@ The data visualization(s) that you believe will be useful in exploring your ques
 
 
 ```{r visualization draft}
-ggplot(Data2, mapping = aes(x = Region, y = `fertN_lb/ac`))+
-       geom_histogram()
+mnr_filter <- Data2_clean|>
+ re
+ggplot(Data2_clean, mapping = aes(x = mnr_source, y = p_h))+
+         geom_boxplot()
 ```
 
+```{r}
+ggplot(Data2_clean, mapping = aes(x = p_h, y = soil_type))+
+  geom_boxplot()
+  
+```
 
 ## 4. Data Ethics Review
 
