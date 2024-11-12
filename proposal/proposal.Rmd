@@ -62,26 +62,26 @@ The data visualization(s) that you believe will be useful in exploring your ques
 
 ```{r visualization draft}
 Data2_clean|>
+
+mutate(mnr_solid = str_to_upper(mnr_solid)) |>
 filter(mnr_source != ".")|> 
 filter(mnr_solid != ".")|>
 mutate(mnr_source = fct_relevel(mnr_source, "none", "beef","dairy", "chicken", "swine", "turkey" ))|>
-
   
-ggplot(Data2_clean, mapping = aes(x = mnr_source, y = p_h, color = mnr_solid))+
+ggplot(Data2_clean, mapping = aes(x = mnr_source, y = p_h, fill = mnr_solid))+
          geom_violin()+
-  scale_colour_viridis_d()+
+  scale_fill_viridis_d()+
 
+  labs(title = "pH levels of soil with different manure sources", x = "Manure Type", y = "pH", fill = "State of Manure")+
 
-  labs(title = "Ph levels of soil with different manure sources", x = "Manure Type", y = "pH", color = "Manure")
+  geom_hline(yintercept = 6.8, linetype = "dotted", color = "black", size = 0.5) +
+  geom_hline(yintercept = 7.5, linetype = "dotted", color = "black", size = 0.5) 
   
 ```
 
 ```{r vis 2}
+p1 <- p1 + 
 
-
-ggplot(Data2_clean, mapping = aes(x = p_h, y = soil_type))+
-  geom_boxplot()
-  
 ```
 
 ## 4. Data Ethics Review
