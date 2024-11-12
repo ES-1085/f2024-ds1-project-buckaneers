@@ -61,12 +61,22 @@ The data visualization(s) that you believe will be useful in exploring your ques
 
 
 ```{r visualization draft}
+
 Data2_clean|>
 
 mutate(mnr_solid = str_to_upper(mnr_solid)) |>
 filter(mnr_source != ".")|> 
 filter(mnr_solid != ".")|>
 mutate(mnr_source = fct_relevel(mnr_source, "none", "beef","dairy", "chicken", "swine", "turkey" ))|>
+
+Data2_clean <- Data2_clean|>
+filter(mnr_source != ".")|> 
+filter(mnr_solid != ".")|>
+mutate(mnr_source = fct_relevel(mnr_source, "none", "beef","dairy", "chicken", "swine", "turkey" ))
+
+Data2_clean <- Data2_clean |> 
+  mutate(mnr_solid = if_else(mnr_solid == "s", "S", mnr_solid))
+
   
 ggplot(Data2_clean, mapping = aes(x = mnr_source, y = p_h, fill = mnr_solid))+
          geom_violin()+
