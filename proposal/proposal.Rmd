@@ -36,7 +36,7 @@ Data2_clean <- janitor::clean_names(Data2)
 ```
 
 ```{r}
-Data2 <- read_csv("../data/Data2.csv")
+Data2 <- read_csv("../data/Data2.csv", na = ".")
 
 ```
 
@@ -62,35 +62,64 @@ The data visualization(s) that you believe will be useful in exploring your ques
 
 ```{r visualization draft}
 
-Data2_clean|>
 
-mutate(mnr_solid = str_to_upper(mnr_solid)) |>
-filter(mnr_source != ".")|> 
-filter(mnr_solid != ".")|>
-mutate(mnr_source = fct_relevel(mnr_source, "none", "beef","dairy", "chicken", "swine", "turkey" ))|>
+Data2_clean |>
+  mutate(mnr_solid = str_to_upper(mnr_solid)) |>
+  filter(mnr_source != ".") |>
+  filter(mnr_solid != ".") |>
+  mutate(mnr_source = fct_relevel(
+    mnr_source,
+    "none",
+    "beef",
+    "dairy",
+    "chicken",
+    "swine",
+    "turkey"
+  ))
+  
+  Data2_clean <- Data2_clean |>
+  filter(mnr_source != ".") |>
+  filter(mnr_solid != ".") |>
+  mutate(mnr_source = fct_relevel(
+    mnr_source,
+    "none",
+    "beef",
+    "dairy",
+    "chicken",
+    "swine",
+    "turkey"
+  ))
 
-Data2_clean <- Data2_clean|>
-filter(mnr_source != ".")|> 
-filter(mnr_solid != ".")|>
-mutate(mnr_source = fct_relevel(mnr_source, "none", "beef","dairy", "chicken", "swine", "turkey" ))
-
-Data2_clean <- Data2_clean |> 
+Data2_clean <- Data2_clean |>
   mutate(mnr_solid = if_else(mnr_solid == "s", "S", mnr_solid))
 
+
+ggplot(Data2_clean, mapping = aes(x = mnr_source, y = p_h, fill = mnr_solid)) +
+  geom_violin() +
+  scale_fill_viridis_d() +
   
-ggplot(Data2_clean, mapping = aes(x = mnr_source, y = p_h, fill = mnr_solid))+
-         geom_violin()+
-  scale_fill_viridis_d()+
-
-  labs(title = "pH levels of soil with different manure sources", x = "Manure Type", y = "pH", fill = "State of Manure")+
-
-  geom_hline(yintercept = 6.8, linetype = "dotted", color = "black", size = 0.5) +
-  geom_hline(yintercept = 7.5, linetype = "dotted", color = "black", size = 0.5) 
+  labs(title = "pH levels of soil with different manure sources",
+       x = "Manure Type",
+       y = "pH",
+       fill = "State of Manure") +
+  
+  geom_hline(
+    yintercept = 6.8,
+    linetype = "dotted",
+    color = "black",
+    size = 0.5
+  ) +
+  geom_hline(
+    yintercept = 7.5,
+    linetype = "dotted",
+    color = "black",
+    size = 0.5
+  ) 
   
 ```
 
 ```{r vis 2}
-p1 <- p1 + 
+
 
 ```
 
