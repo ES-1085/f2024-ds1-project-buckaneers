@@ -70,8 +70,8 @@ Data2_clean |>
   mutate(mnr_source = fct_relevel(
     mnr_source,
     "none",
-    "beef",
-    "dairy",
+    "beef cow",
+    "dairy cow",
     "chicken",
     "swine",
     "turkey"
@@ -83,8 +83,8 @@ Data2_clean |>
   mutate(mnr_source = fct_relevel(
     mnr_source,
     "none",
-    "beef",
-    "dairy",
+    "beef cow",
+    "dairy cow",
     "chicken",
     "swine",
     "turkey"
@@ -120,6 +120,52 @@ ggplot(Data2_clean, mapping = aes(x = mnr_source, y = p_h, fill = mnr_solid)) +
 
 ```{r vis 2}
 
+# Update 'mnr_source' values in Data2_clean to replace 'dairy' and 'beef' with 'dairy cow' and 'beef cow'
+Data2_clean <- Data2_clean |>
+  mutate(
+    mnr_source = case_when(
+      mnr_source == "dairy" ~ "dairy cow",
+      mnr_source == "beef" ~ "beef cow",
+      TRUE ~ mnr_source
+    )
+  ) |>
+  mutate(mnr_solid = str_to_upper(mnr_solid)) |>
+  filter(mnr_source != ".") |>
+  filter(mnr_solid != ".") |>
+  mutate(mnr_source = fct_relevel(
+    mnr_source,
+    "none",
+    "beef cow",
+    "dairy cow",
+    "chicken",
+    "swine",
+    "turkey"
+  ))
+
+# Plot with updated x-axis labels
+ggplot(Data2_clean, mapping = aes(x = mnr_source, y = p_h, fill = mnr_solid)) +
+  geom_violin() +
+  scale_fill_viridis_d() +
+  labs(
+    title = "pH levels of soil with different manure sources",
+    x = "Manure Type",
+    y = "pH",
+    fill = "State of Manure"
+  ) +
+  geom_hline(
+    yintercept = 6.8,
+    linetype = "dotted",
+    color = "black",
+    size = 0.5
+  ) +
+  geom_hline(
+    yintercept = 7.5,
+    linetype = "dotted",
+    color = "black",
+    size = 0.5
+  )
+
+```
 
 ```
 
