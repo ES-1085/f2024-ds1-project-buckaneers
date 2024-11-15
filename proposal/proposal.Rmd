@@ -13,6 +13,8 @@ data2 <- read_csv("../data/Data2.csv")
 library(readr)
 library(dplyr)
 library(janitor)
+library(ggthemes)
+library(gapminder)
 
 ```
 
@@ -65,8 +67,6 @@ The data visualization(s) that you believe will be useful in exploring your ques
 
 Data2_clean |>
   mutate(mnr_solid = str_to_upper(mnr_solid)) |>
-  filter(mnr_source != ".") |>
-  filter(mnr_solid != ".") |>
   mutate(mnr_source = fct_relevel(
     mnr_source,
     "none",
@@ -77,21 +77,24 @@ Data2_clean |>
     "turkey"
   ))
   
-  Data2_clean <- Data2_clean |>
-  filter(mnr_source != ".") |>
-  filter(mnr_solid != ".") |>
-  mutate(mnr_source = fct_relevel(
-    mnr_source,
+Data2_clean <- Data2_clean |>
+  mutate(mnr_solid = if_else(mnr_solid == "s", "S", mnr_solid)) |>
+  mutate(mnr_solid = fct_relevel(
+    mnr_solid,
     "none",
+<<<<<<< HEAD
     "beef cow",
     "dairy cow",
     "chicken",
     "swine",
     "turkey"
+=======
+    "S",
+    "L",
+    "B"
+>>>>>>> cd035fc08aeae789a9f14667d74dfd7cdb99c4c0
   ))
-
-Data2_clean <- Data2_clean |>
-  mutate(mnr_solid = if_else(mnr_solid == "s", "S", mnr_solid))
+  
 
 
 ggplot(Data2_clean, mapping = aes(x = mnr_source, y = p_h, fill = mnr_solid)) +
@@ -102,7 +105,16 @@ ggplot(Data2_clean, mapping = aes(x = mnr_source, y = p_h, fill = mnr_solid)) +
        x = "Manure Type",
        y = "pH",
        fill = "State of Manure") +
-  
+
+ 
+   annotate("rect", 
+  xmin = "none", 
+  xmax = "turkey", 
+  ymin = 6.8, 
+  ymax = 7.5, 
+  alpha = 0.2, 
+  fill = "green")+
+   
   geom_hline(
     yintercept = 6.8,
     linetype = "dotted",
@@ -114,7 +126,11 @@ ggplot(Data2_clean, mapping = aes(x = mnr_source, y = p_h, fill = mnr_solid)) +
     linetype = "dotted",
     color = "black",
     size = 0.5
-  ) 
+  ) +
+  
+  geom_text(aes(x = "turkey", y = 7.6),
+            label = "Ideal pH")+
+  theme_linedraw()
   
 ```
 
@@ -152,18 +168,20 @@ ggplot(Data2_clean, mapping = aes(x = mnr_source, y = p_h, fill = mnr_solid)) +
     y = "pH",
     fill = "State of Manure"
   ) +
-  geom_hline(
-    yintercept = 6.8,
+  geom_hline(aes(yintercept = 6.8, color = "Healthy"),
     linetype = "dotted",
-    color = "black",
-    size = 0.5
+    size = 1.0
   ) +
-  geom_hline(
-    yintercept = 7.5,
+  geom_hline(aes(yintercept = 7.5, color = "Unhealthy"),
     linetype = "dotted",
-    color = "black",
     size = 0.5
-  )
+  )+
+  scale_color_manual(
+    name = "pH",  
+    values = c("Unhealthy" = "black", "Healthy" = "black")
+  ) 
+  
+
 
 ```
 
