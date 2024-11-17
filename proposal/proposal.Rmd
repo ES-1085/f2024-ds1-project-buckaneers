@@ -187,14 +187,16 @@ ggplot(Data2_clean, mapping = aes(x = mnr_source, y = p_h, fill = mnr_solid)) +
 
 ```
 ```{r Nitrogen Plot}
-Data2_clean|>
-filter(Ncredit_lb/ac  )|> 
-mutate(Ncredit_lb/ac  fct_relevel(Ncredit_lb/ac, "none", "beef","dairy", "chicken", "swine", "turkey" ))|>
-
-  
-ggplot(Data2_clean, mapping = aes(x = mnr_source, y = Ncredit_lb/ac, color = mnr_solid))+
+Data2_clean|>`drop = FALSE`|>
+select(c(ncredit_lb_ac, cvrs_species_lg_tm))|> 
+ggplot( mapping = aes(x = cvrs_species_lg_tm, y = ncredit_lb_ac, color = cvrs_species_lg_tm))+
          geom_violin()+
   scale_colour_viridis_d()
+  labs(
+  title = "Nitrogen Credits by Cover Crop",
+  x = "Cover Species",
+  y = "Nitrogen Credits (Pounds per Acre)"
+)
 ```
 
 ## 4. Data Ethics Review
