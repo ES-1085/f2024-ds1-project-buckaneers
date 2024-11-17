@@ -83,6 +83,16 @@ ggplot(Data2_clean, mapping = aes(x = p_h, y = soil_type))+
   geom_boxplot()
   
 ```
+```{r Nitrogen Plot}
+Data2_clean|>
+filter(Ncredit_lb/ac  )|> 
+mutate(Ncredit_lb/ac  fct_relevel(Ncredit_lb/ac, "none", "beef","dairy", "chicken", "swine", "turkey" ))|>
+
+  
+ggplot(Data2_clean, mapping = aes(x = mnr_source, y = Ncredit_lb/ac, color = mnr_solid))+
+         geom_violin()+
+  scale_colour_viridis_d()
+```
 
 ## 4. Data Ethics Review
 
