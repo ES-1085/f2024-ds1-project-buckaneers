@@ -13,6 +13,8 @@ data2 <- read_csv("../data/Data2.csv")
 library(readr)
 library(dplyr)
 library(janitor)
+library(ggthemes)
+library(gapminder)
 
 ```
 
@@ -36,7 +38,7 @@ Data2_clean <- janitor::clean_names(Data2)
 ```
 
 ```{r}
-Data2 <- read_csv("../data/Data2.csv")
+Data2 <- read_csv("../data/Data2.csv", na = ".")
 
 ```
 
@@ -61,27 +63,128 @@ The data visualization(s) that you believe will be useful in exploring your ques
 
 
 ```{r visualization draft}
-Data2_clean|>
-filter(mnr_source != ".")|> 
-filter(mnr_solid != ".")|>
-mutate(mnr_source = fct_relevel(mnr_source, "none", "beef","dairy", "chicken", "swine", "turkey" ))|>
 
+
+Data2_clean |>
+  mutate(mnr_solid = str_to_upper(mnr_solid)) |>
+  mutate(mnr_source = fct_relevel(
+    mnr_source,
+    "none",
+    "beef cow",
+    "dairy cow",
+    "chicken",
+    "swine",
+    "turkey"
+  ))
   
-ggplot(Data2_clean, mapping = aes(x = mnr_source, y = p_h, color = mnr_solid))+
-         geom_violin()+
-  scale_colour_viridis_d()+
+Data2_clean <- Data2_clean |>
+  mutate(mnr_solid = if_else(mnr_solid == "s", "S", mnr_solid)) |>
+  mutate(mnr_solid = fct_relevel(
+    mnr_solid,
+    "none",
+<<<<<<< HEAD
+    "beef cow",
+    "dairy cow",
+    "chicken",
+    "swine",
+    "turkey"
+=======
+    "S",
+    "L",
+    "B"
+>>>>>>> cd035fc08aeae789a9f14667d74dfd7cdb99c4c0
+  ))
+  
 
 
-  labs(title = "Ph levels of soil with different manure sources", x = "Manure Type", y = "pH", color = "Manure")
+ggplot(Data2_clean, mapping = aes(x = mnr_source, y = p_h, fill = mnr_solid)) +
+  geom_violin() +
+  scale_fill_viridis_d() +
+  
+  labs(title = "pH levels of soil with different manure sources",
+       x = "Manure Type",
+       y = "pH",
+       fill = "State of Manure") +
+
+ 
+   annotate("rect", 
+  xmin = "none", 
+  xmax = "turkey", 
+  ymin = 6.8, 
+  ymax = 7.5, 
+  alpha = 0.2, 
+  fill = "green")+
+   
+  geom_hline(
+    yintercept = 6.8,
+    linetype = "dotted",
+    color = "black",
+    size = 0.5
+  ) +
+  geom_hline(
+    yintercept = 7.5,
+    linetype = "dotted",
+    color = "black",
+    size = 0.5
+  ) +
+  
+  geom_text(aes(x = "turkey", y = 7.6),
+            label = "Ideal pH")+
+  theme_linedraw()
   
 ```
 
 ```{r vis 2}
 
+# Update 'mnr_source' values in Data2_clean to replace 'dairy' and 'beef' with 'dairy cow' and 'beef cow'
+Data2_clean <- Data2_clean |>
+  mutate(
+    mnr_source = case_when(
+      mnr_source == "dairy" ~ "dairy cow",
+      mnr_source == "beef" ~ "beef cow",
+      TRUE ~ mnr_source
+    )
+  ) |>
+  mutate(mnr_solid = str_to_upper(mnr_solid)) |>
+  filter(mnr_source != ".") |>
+  filter(mnr_solid != ".") |>
+  mutate(mnr_source = fct_relevel(
+    mnr_source,
+    "none",
+    "beef cow",
+    "dairy cow",
+    "chicken",
+    "swine",
+    "turkey"
+  ))
 
-ggplot(Data2_clean, mapping = aes(x = p_h, y = soil_type))+
-  geom_boxplot()
+# Plot with updated x-axis labels
+ggplot(Data2_clean, mapping = aes(x = mnr_source, y = p_h, fill = mnr_solid)) +
+  geom_violin() +
+  scale_fill_viridis_d() +
+  labs(
+    title = "pH levels of soil with different manure sources",
+    x = "Manure Type",
+    y = "pH",
+    fill = "State of Manure"
+  ) +
+  geom_hline(aes(yintercept = 6.8, color = "Healthy"),
+    linetype = "dotted",
+    size = 1.0
+  ) +
+  geom_hline(aes(yintercept = 7.5, color = "Unhealthy"),
+    linetype = "dotted",
+    size = 0.5
+  )+
+  scale_color_manual(
+    name = "pH",  
+    values = c("Unhealthy" = "black", "Healthy" = "black")
+  ) 
   
+
+
+```
+
 ```
 ```{r Nitrogen Plot}
 Data2_clean|>
