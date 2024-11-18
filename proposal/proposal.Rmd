@@ -126,15 +126,14 @@ ggplot(Data2_clean, mapping = aes(x = mnr_source, y = p_h, fill = mnr_solid)) +
 Data2_clean|>
 select(c(springfall_till_passes, drainage))|> 
 ggplot( mapping = aes(x = drainage, y = springfall_till_passes))+
-         geom_violin()+
-  scale_colour_viridis_d()
+         geom_col(fill = "darkgreen")+
+  scale_colour_viridis_d() + 
   labs(
-  title = "Nitrogen Credits by Cover Crop",
+  title = "Drainage and Tilling Correlation",
   x = "Drainage",
   y = "Spring- Fall Till Passes"
-) +
-    scale_color_manual(name = springfall_till_passes 
-                       values = c("Drainage" = "blue"))
+) 
+
 ```
 
 ```
