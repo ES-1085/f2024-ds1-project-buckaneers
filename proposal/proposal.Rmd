@@ -123,16 +123,18 @@ ggplot(Data2_clean, mapping = aes(x = mnr_source, y = p_h, fill = mnr_solid)) +
 ```
 
 ```{r}
-Data2_clean|>`drop = FALSE`|>
-select(c(ncredit_lb_ac, cvrs_species_lg_tm))|> 
-ggplot( mapping = aes(x = cvrs_species_lg_tm, y = ncredit_lb_ac, color = cvrs_species_lg_tm))+
+Data2_clean|>
+select(c(springfall_till_passes, drainage))|> 
+ggplot( mapping = aes(x = drainage, y = springfall_till_passes))+
          geom_violin()+
   scale_colour_viridis_d()
   labs(
   title = "Nitrogen Credits by Cover Crop",
-  x = "Cover Species",
-  y = "Nitrogen Credits (Pounds per Acre)"
-)
+  x = "Drainage",
+  y = "Spring- Fall Till Passes"
+) +
+    scale_color_manual(name = springfall_till_passes 
+                       values = c("Drainage" = "blue"))
 ```
 
 ```
