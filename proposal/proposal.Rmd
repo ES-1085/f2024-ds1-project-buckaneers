@@ -123,11 +123,12 @@ ggplot(Data2_clean, mapping = aes(x = mnr_source, y = p_h, fill = mnr_solid)) +
 ```
 
 ```{r}
-Data2_clean|>
+Data2_clean|> filter( springfall_till_passes != ".") |>
+  
 select(c(springfall_till_passes, drainage))|> 
 ggplot( mapping = aes(x = drainage, y = springfall_till_passes))+
-         geom_col(fill = "darkgreen")+
-  scale_colour_viridis_d() + 
+         geom_violin(fill = "darkgreen")+
+  #scale_colour_viridis_d() + 
   labs(
   title = "Drainage and Tilling Correlation", subtitle = "Drainage class is rated on a scale from 1-7, ranging from 'very poorly drained' to  'excessively drained'. Tilling is the act of aerating the soil (typically with heavy machinery) to improve air circulation and water permeation. ", 
   x = "Drainage Class",
