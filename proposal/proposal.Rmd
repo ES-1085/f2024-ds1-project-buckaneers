@@ -91,7 +91,7 @@ Data2_clean <- Data2_clean |>
 ggplot(Data2_clean, mapping = aes(x = mnr_source, y = p_h, fill = mnr_solid)) +
   geom_violin() +
   
- scale_fill_manual(values = c( "S" = "darkblue", "L" = "yellow",  "B" = "darkgreen", "NONE" = "brown"),
+ scale_fill_manual(values = c(  "S" = "#404688FF", "L" = "#21908CFF",  "B" = "#7AD151FF", "NONE" = "#FDE725FF"),
                     breaks = c("S","L","B","NONE"),
                     labels = c("Solid","Liquid","Both","None"))+
   
