@@ -161,25 +161,33 @@ Data2_clean <- Data2_clean |>
 # Plot with updated x-axis labels
 ggplot(Data2_clean, mapping = aes(x = mnr_source, y = p_h, fill = mnr_solid)) +
   geom_violin() +
-  scale_fill_viridis_d() +
+  
+ scale_fill_manual(values = c( "S" = "darkblue", "L" = "yellow",  "B" = "darkgreen", "NONE" = "brown"),
+                    breaks = c("S","L","B","NONE"),
+                    labels = c("Solid","Liquid","Both","None"))+
+  
+
+
   labs(
     title = "pH levels of soil with different manure sources",
     x = "Manure Type",
     y = "pH",
     fill = "State of Manure"
   ) +
-  geom_hline(aes(yintercept = 6.8, color = "Healthy"),
+  geom_hline(aes(yintercept = 6.8),
     linetype = "dotted",
-    size = 1.0
+    size = 0.7
   ) +
-  geom_hline(aes(yintercept = 7.5, color = "Unhealthy"),
+  geom_hline(aes(yintercept = 7.5),
     linetype = "dotted",
-    size = 0.5
+    size = 0.7
   )+
   scale_color_manual(
     name = "pH",  
     values = c("Unhealthy" = "black", "Healthy" = "black")
-  ) 
+  ) +
+  geom_text(aes(x = "turkey", y = 7.6), 
+  label = "Ideal pH Range")
   
 
 
