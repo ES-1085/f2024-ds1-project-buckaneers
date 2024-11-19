@@ -141,7 +141,7 @@ ggplot(aes(fill = drainage, y = springfall_till_passes)) +
   labs(title = "Tillage impact on drainage", x = "Number of fields", y = "Number of till passes", fill = "Drainage")+
   
   scale_fill_manual(values = c(  "1" = "#440154FF", "2" = "#443A83FF",  "3" = "#3B528BFF", "4" = "#2C728EFF", "5" = "#24868EFF", "6" = "#1F9A8AFF", "7" = "#47C16EFF"),
-                    breaks = c("1","2","3","4","5","6","7"),
+                     breaks = c("1","2","3","4","5","6","7"),
                     labels = c("Very poorly drained", "Poorly drained", "Somewhat poorly drained", "Moderately well drained", "Well drained", "Somewhat excessively well drained", "Excessively drained"))+
   
     geom_bar(position = "stack")
@@ -152,6 +152,16 @@ Data2_clean|> group_by (springfall_till_passes, drainage) |> arrange(drainage)|>
 ggplot(aes(fill = drainage, y = springfall_till_passes, x = drainage)) + 
   
     geom_bar(position = "stack", stat = "identity")
+```
+```{r}
+Data2_clean|>
+  ggplot(aes(x = sand, y = total_n_lb_ac))+
+  geom_smooth()
+```
+```{r}
+Data2_clean|>
+ggplot(aes(x = mnr_source, y= mnr_n_lb_ac))+
+  geom_density()
 ```
 
 ## 4. Data Ethics Review
