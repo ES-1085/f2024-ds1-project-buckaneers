@@ -138,7 +138,7 @@ ggplot( mapping = aes(x = drainage, y = springfall_till_passes))+
 Data2_clean|> filter(springfall_till_passes != ".") |>  mutate(drainage = as.character(drainage)) |> group_by (springfall_till_passes, drainage) |> arrange(drainage)|>
 ggplot(aes(fill = drainage, y = springfall_till_passes)) + 
   
-    geom_bar(position = "stack")
+    geom_bar(position = "stack") 
 ```
 
 ```{r}
