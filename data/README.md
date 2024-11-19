@@ -108,13 +108,6 @@ Number of columns 35
 - `cvrs5yrs 5` : 5
 - `cvrs5yrs 6` : No Data
 
-- `SpringfallTillPasses 1` : No tillage
-- `SpringfallTillPasses 2` : 1
-- `SpringfallTillPasses 3` : 2
-- `SpringfallTillPasses 4` : 3
-- `SpringfallTillPasses 5` : 4
-- `SpringfallTillPasses 6` : No data
-
 - `tillType 1` : No tillage (fields that have been managed without tillage for at least five years)
 - `tillType 2` : Minimum tillage (strip tillage and vertical tillage)
 - `tillType 3` : Conventional tillage (moldboard, chisel, or disc tillage)
