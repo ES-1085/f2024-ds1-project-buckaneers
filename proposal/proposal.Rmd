@@ -60,7 +60,7 @@ The data visualization(s) that you believe will be useful in exploring your ques
 -   We think that faceting might be of use to separate visualizations for soil types or crop rotation/ species grown.
 -   The use of mapping or making a map colored by specific variable(s) may be helpful in visualizing soil qualities based on location/use of land (agricultural/livestock).
 
-```{r vis 2}
+```{r manure pH, fig.alt= "A vertical violin plot depicting the correlation of the use of different manure types with the pH of the soil. The types of manure being none, beef cow, dairy cow, chicken, swine, and turkey. In the chart the dairy cow has the most consistent pH that falls within the ideal range for plant growth depicted with a dotted line at 6.8 and 7.5."}
 
 # Update 'mnr_source' values in Data2_clean to replace 'dairy' and 'beef' with 'dairy cow' and 'beef cow'
 Data2_clean <- Data2_clean |>
@@ -91,6 +91,7 @@ ggplot(Data2_clean, mapping = aes(x = mnr_source, y = p_h, fill = mnr_solid)) +
  scale_fill_manual(values = c(  "S" = "#404688FF", "L" = "#21908CFF",  "B" = "#7AD151FF", "NONE" = "#FDE725FF"),
                     breaks = c("S","L","B","NONE"),
                     labels = c("Solid","Liquid","Both","None"))+
+ 
   
 
 
@@ -134,9 +135,14 @@ ggplot( mapping = aes(x = drainage, y = springfall_till_passes))+
 ) 
 ```
 
-```{r}
+```{r tillage drainage, fig.alt = A stacked horizontal bar chart depicting the correlation of till passes with the drainage of the field. On the y axis being number of till passes on the x axis the number of feilds and the fill of the bars was how good the drainage was on the field.}
 Data2_clean|> filter(springfall_till_passes != ".") |>  mutate(drainage = as.character(drainage)) |> group_by (springfall_till_passes, drainage) |> arrange(drainage)|>
 ggplot(aes(fill = drainage, y = springfall_till_passes)) + 
+  labs(title = "Tillage impact on drainage", x = "Number of fields", y = "Number of till passes", fill = "Drainage")+
+  
+  scale_fill_manual(values = c(  "1" = "#440154FF", "2" = "#443A83FF",  "3" = "#3B528BFF", "4" = "#2C728EFF", "5" = "#24868EFF", "6" = "#1F9A8AFF", "7" = "#47C16EFF"),
+                    breaks = c("1","2","3","4","5","6","7"),
+                    labels = c("Very poorly drained", "Poorly drained", "Somewhat poorly drained", "Moderately well drained", "Well drained", "Somewhat excessively well drained", "Excessively drained"))+
   
     geom_bar(position = "stack")
 ```
