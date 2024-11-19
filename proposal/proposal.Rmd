@@ -135,7 +135,7 @@ ggplot( mapping = aes(x = drainage, y = springfall_till_passes))+
 ) 
 ```
 
-```{r tillage drainage, fig.alt = A stacked horizontal bar chart depicting the correlation of till passes with the drainage of the field. On the y axis being number of till passes on the x axis the number of feilds and the fill of the bars was how good the drainage was on the field.}
+```{r tillage drainage, fig.alt = A stacked horizontal bar chart depicting the correlation of till passes with the drainage of the field. On the y axis being number of till passes on the x axis the number of fields and the fill of the bars was how good the drainage was on the field.}
 Data2_clean|> filter(springfall_till_passes != ".") |>  mutate(drainage = as.character(drainage)) |> group_by (springfall_till_passes, drainage) |> arrange(drainage)|>
 ggplot(aes(fill = drainage, y = springfall_till_passes)) + 
   labs(title = "Tillage impact on drainage", x = "Number of fields", y = "Number of till passes", fill = "Drainage")+
@@ -153,11 +153,13 @@ ggplot(aes(fill = drainage, y = springfall_till_passes, x = drainage)) +
   
     geom_bar(position = "stack", stat = "identity")
 ```
+
 ```{r}
 Data2_clean|>
   ggplot(aes(x = sand, y = total_n_lb_ac))+
   geom_smooth()
 ```
+
 ```{r}
 Data2_clean|>
 ggplot(aes(x = mnr_source, y= mnr_n_lb_ac))+
