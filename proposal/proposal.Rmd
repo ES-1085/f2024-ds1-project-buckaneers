@@ -120,7 +120,7 @@ ggplot(Data2_clean, mapping = aes(x = mnr_source, y = p_h, fill = mnr_solid)) +
 
 ```
 
-```{r}
+```{r water drainage correlation to tilling of the soil, fig.alt= a horizontal violin plot is showing the correlation of tillage amount and frequencey compared to the amount of water drainage on a scale of 1-7: 1 - very poorly drained, 2 - poorly drained, 3 - somewhat poorly drained, 4 - moderately well drained, 5 - well drained, 6 - somewhat excessively well drained, 7 - excessively drained.}
 Data2_clean|> filter( springfall_till_passes != ".") |>
   
 select(c(springfall_till_passes, drainage))|> 
