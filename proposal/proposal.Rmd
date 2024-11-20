@@ -53,7 +53,7 @@ What variables will you visualize to explore your research questions?
 
 Will there be any other data that you need to find to help with your research question?
 
--   Not at the moment, but if there is, we will add it. We are also looking at narrative comments on the data in the source paper, which is still pre-print and unpublished.
+-   Not at the moment, but if there is, we will add it. We are also looking at narrative comments on the data in the source paper, which is still in pre-print and unpublished.
 
 The data visualization(s) that you believe will be useful in exploring your question(s). (You can update these later as you work on your project.)
 
