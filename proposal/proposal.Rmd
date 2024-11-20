@@ -8,7 +8,7 @@ output: html_document
 library(tidyverse)
 library(broom)
 
-Data2 <- read_csv("../data/Data2.csv")
+data2 <- read_csv("../data/Data2.csv")
 
 library(readr)
 library(dplyr)
@@ -29,12 +29,7 @@ There are `r nrow(data2)` rows and `r ncol(data2)`
 
 
 ```{r Data overveiw}
-Data2_clean <- janitor::clean_names(Data2)
-```
-
-```{r}
-Data2 <- read_csv("../data/Data2.csv", na = ".")
-
+Data2_clean <- janitor::clean_names(data2)
 ```
 
 ```{r}
@@ -128,7 +123,7 @@ ggplot( mapping = aes(x = drainage, y = springfall_till_passes))+
 
 
 
-```{r tillage drainage, fig.alt = A stacked horizontal bar chart depicting the correlation of till passes with the drainage of the field. On the y axis being number of till passes on the x axis the number of fields and the fill of the bars was how good the drainage was on the field.}
+```{r tillage drainage, fig.alt = "A stacked horizontal bar chart depicting the correlation of till passes with the drainage of the field. On the y axis being number of till passes on the x axis the number of fields and the fill of the bars was how good the drainage was on the field."}
 Data2_clean|> filter(springfall_till_passes != ".") |>  mutate(drainage = as.character(drainage)) |> group_by (springfall_till_passes, drainage) |> arrange(drainage)|>
 ggplot(aes(fill = drainage, y = springfall_till_passes)) + 
   labs(title = "Tillage impact on drainage", x = "Number of fields", y = "Number of till passes", fill = "Drainage")+
