@@ -1,17 +1,10 @@
-Project title
+Agricultural Practices & Their Impacts on Soil Organic Matter
 ================
-by Team name
+by Aronah Swartz, Clastel Patrik, and Blake Berry
 
 ## Summary
 
-Write-up of your project and findings go here. Think of this as the text
-of your handout. The length should be roughly 5 minutes when read
-out loud. Although pacing varies, a 5-minute speech is roughly 750
-words. 
-
-Your results with proper output and
-graphics go in your handout, this space is for a brief summary of
-your project.
+Agricultural practices have been discovered to have adverse effects on soil health and the quality of soils. Since the Industrial Revolution, humans have developed practices that may harm soil health and its essential properties. This project was based on a data set of soil qualities and properties from 218 different farmlands across Wisconsin and Minnesota from 2015 to 2017. The dataset explores how soil properties (e.g., texture, pH, and drainage class), as well as soil organic matter (SOM), are affected by specific farming and agricultural practices. Practices used among these farms include rotation of crops, tillage type and frequency (e.g., no-till, conventional till), use of cover crops, and manure application (e.g., timing, type, and frequency). We found that certain livestock have more effects on soil qualities like pH and that the amount of soil tilling can heavily impact the health and presence of water drainage in soil. 
 
 ## Handout
 
@@ -30,5 +23,5 @@ sure to note the retrieval date.
 
 ## References
 
-List any references here. You should, at a minimum, list your data
-source.
+Richardson, Gregory S., et al. “The Influence of Inherent Soil Factors and Agricultural Management on Soil Organic Matter.” Research Square (Research Square), Research Square (United States), Aug. 2021, https://doi.org/10.21203/rs.3.rs-784637/v1.
+
