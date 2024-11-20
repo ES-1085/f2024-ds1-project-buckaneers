@@ -52,13 +52,15 @@ The data visualization(s) that you believe will be useful in exploring your ques
 -   The use of mapping or making a map colored by specific variable(s) may be helpful in visualizing soil qualities based on location/use of land (agricultural/livestock).
 
 ```{r manure pH, fig.alt= "A vertical violin plot depicting the correlation of the use of different manure types with the pH of the soil. The types of manure being none, beef cow, dairy cow, chicken, swine, and turkey. In the chart the dairy cow has the most consistent pH that falls within the ideal range for plant growth depicted with a dotted line at 6.8 and 7.5."}
-
-
 Data2_clean <- Data2_clean |>
   mutate(
     mnr_source = case_when(
       mnr_source == "dairy" ~ "dairy cow",
-      mnr_source == "beef" ~ "beef cow",
+```
+
+
+```{r manure pH, fig.alt= "A vertical violin plot depicting the correlation of the use of different manure types with the pH of the soil. The types of manure being none, beef cow, dairy cow, chicken, swine, and turkey. In the chart the dairy cow has the most consistent pH that falls within the ideal range for plant growth depicted with a dotted line at 6.8 and 7.5."}
+mnr_source == "beef" ~ "beef cow",
       TRUE ~ mnr_source
     )
   ) |>
@@ -164,16 +166,18 @@ ggplot(aes(fill = drainage, y = springfall_till_passes, x = drainage)) +
     geom_bar(position = "stack", stat = "identity")
 ```
 
-```{r}
+```{r fig.alt= "A line graph depicting the relationship between a soil's sand content and the drainage class. On the x axis, sand content is shown from 0-85%. On the y axis, drainage classes from 1-6 are shown.}
 Data2_clean|>
   ggplot(aes(x = sand, y = drainage))+
-  geom_smooth()
+  geom_smooth(color = "#440154FF", span = .5 ) + 
+  labs( title = "Sand Percentage Impact on Drainage", x = "Sand (%)", y = "Drainage Class")
 ```
 
-```{r}
+```{r Clay Percentage Impact on Drainage, fig.alt= "A line graph depicting the relationship between a soil's clay content and the drainage class. On the x axis, clay content is shown from 0-46%. On the y axis, drainage classes from 1-6 are shown.}
 Data2_clean|>
   ggplot(aes(x = clay, y = drainage))+
-  geom_smooth()
+  geom_smooth(color = "#2C728EFF", span = .5) +
+labs(title = "Clay Percentage Impact on Drainage", x = "Clay (%)" ,y = "Drainage Class")
 ```
 
 
