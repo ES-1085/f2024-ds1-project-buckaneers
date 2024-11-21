@@ -8,7 +8,7 @@ Agricultural practices have been discovered to have adverse effects on soil heal
 
 ## Handout
 
-Our presentation can be found [here](handout/handout.pdf). You can update the filename and extension of your handout.
+Our presentation can be found [here](https://github.com/ES-1085/f2024-ds1-project-buckaneers/blob/main/ES%201085%20f2024-ds1-Project-Buccaneers.png). You can update the filename and extension of your handout.
 
 ## Memo
 
